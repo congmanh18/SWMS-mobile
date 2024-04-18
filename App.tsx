@@ -7,9 +7,11 @@
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -17,16 +19,15 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import Register from './screens/Register';
 import Login from './screens/Login';
+import Verification from './screens/Verification';
+import Home from './screens/Home';
+import Area from './screens/Area';
+import Header from './components/Header';
+const Stack = createStackNavigator();
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -58,22 +59,50 @@ function Section({children, title}: SectionProps): React.JSX.Element {
   );
 }
 
-function App(): React.JSX.Element {
+function App() {
+  const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
-    backgroundColor: Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <View style={styles.container}>
-        {/* <Login /> */}
-        <Register />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={[styles.container, backgroundStyle]}>
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <View style={styles.content}>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Register"
+              component={Register}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Verification"
+              component={Verification}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Area"
+              component={Area}
+              options={{headerShown: false}}
+            />
+          </Stack.Navigator>
+        </View>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
@@ -82,6 +111,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'space-between',
+  },
+  content: {
+    flex: 1,
   },
   sectionContainer: {
     marginTop: 32,

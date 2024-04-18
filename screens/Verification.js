@@ -1,21 +1,17 @@
 import React, {useState} from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import TextStyle from '../components/Textstyle.js';
+import TextStyle from '../components/TextStyle.js';
 import {InputNumber} from '../components/Input.js';
-import Button from '../components/Button';
-const Verification = () => {
-  const {height} = Dimensions.get('window');
-
+import Button from '../components/Button.js';
+const Verification = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={{position: 'absolute', left: 25, top: '7%'}}>
+      <TouchableOpacity
+        style={{position: 'absolute', left: 25, top: '7%'}}
+        onPress={() => {
+          navigation.navigate('Login');
+        }}>
         <MaterialCommunityIcons name="chevron-left" color={'black'} size={30} />
       </TouchableOpacity>
       <Text style={[TextStyle.title, {left: 30, top: '15%'}]}>
@@ -60,7 +56,7 @@ const Verification = () => {
           bottom: 10,
           alignSelf: 'center',
         }}>
-        <Button />
+        <Button navigation={navigation} destination="Home" />
       </View>
     </View>
   );
@@ -72,16 +68,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  frame: {
-    flexDirection: 'row',
-    padding: 10,
-    height: 60,
-    width: 270,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#79D45C',
-    borderRadius: 15,
   },
   text: {
     color: 'white',

@@ -2,9 +2,13 @@ import React, {useState} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Button = () => {
+const Button = ({navigation, destination}) => {
   return (
-    <TouchableOpacity style={styles.frame}>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate(destination);
+      }}
+      style={styles.frame}>
       <Text style={styles.text}>SIGN UP</Text>
       <View style={styles.rightposition}>
         <MaterialCommunityIcons name="login" color={'white'} size={25} />

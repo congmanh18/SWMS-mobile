@@ -3,23 +3,19 @@ import {View, StyleSheet, TextInput} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TextStyle from './TextStyle.js';
 
-const Input = () => {
-  const [email, setEmail] = useState('');
+const Input = ({iconName, nameframe, text}) => {
+  const [state, setState] = useState('');
 
   return (
     <View style={styles.frame}>
-      <MaterialCommunityIcons name="account-circle" color={'green'} size={30} />
+      <MaterialCommunityIcons name={nameframe} color={'#747688'} size={30} />
       <TextInput
-        value={email}
-        style={{marginLeft: 10, color: '#00CC33', width: 260}}
-        placeholder="Email"
-        onChangeText={text => setEmail(text)}></TextInput>
+        value={state}
+        style={{marginLeft: 10, color: '#747688', width: 260}}
+        placeholder={text}
+        onChangeText={text => setState(text)}></TextInput>
       <View style={styles.rightposition}>
-        <MaterialCommunityIcons
-          name="eye-off-outline"
-          color={'gray'}
-          size={25}
-        />
+        <MaterialCommunityIcons name={iconName} color={'gray'} size={25} />
       </View>
     </View>
   );

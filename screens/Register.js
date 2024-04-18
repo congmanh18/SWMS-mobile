@@ -8,32 +8,36 @@ import {
   Image,
   Pressable,
 } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TextStyle from '../components/TextStyle.js';
 import Input from '../components/Input.js';
 import Button from '../components/Button.js';
-const Register = () => {
+const Register = ({navigation}) => {
   const {height} = Dimensions.get('window');
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={{position: 'absolute', left: 25, top: '7%'}}>
-        <MaterialCommunityIcons name="chevron-left" color={'black'} size={30} />
-      </TouchableOpacity>
-      <Text style={[TextStyle.title, {left: 30, top: '15%'}]}>Sign up</Text>
+      <Text style={[TextStyle.title, {left: 30, top: '10%'}]}>Sign up</Text>
       <View
         style={{
           height: height * 0.5,
           justifyContent: 'space-between',
           alignItems: 'center',
-          top: '20%',
+          top: '18%',
         }}>
-        <Input />
-        <Input />
-        <Input />
-        <Input />
-        <Input />
-        <Button />
+        <Input nameframe={'account-outline'} text={'Full name'} />
+        <Input nameframe={'cellphone'} text={'Enter your phone number'} />
+        <Input nameframe={'xml'} text={'Enter your registration code'} />
+        <Input
+          nameframe={'lock-outline'}
+          iconName={'eye-off-outline'}
+          text={'Your password'}
+        />
+        <Input
+          nameframe={'lock-outline'}
+          iconName={'eye-off-outline'}
+          text={'Confirm your password'}
+        />
+        <Button navigation={navigation} destination="Login" />
       </View>
       <Text
         style={[TextStyle.heading1, {marginTop: '50%', alignSelf: 'center'}]}>
@@ -63,7 +67,10 @@ const Register = () => {
           />
         </Pressable>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Login');
+        }}>
         <Text
           style={[TextStyle.heading2, {alignSelf: 'center', marginBottom: 10}]}>
           Already have an account? Signin

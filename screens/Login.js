@@ -8,19 +8,15 @@ import {
   Image,
   Pressable,
 } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TextStyle from '../components/TextStyle.js';
 import Input from '../components/Input.js';
 import Button from '../components/Button.js';
-const Login = () => {
+const Login = ({navigation}) => {
   const {height} = Dimensions.get('window');
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={{position: 'absolute', left: 25, top: '7%'}}>
-        <MaterialCommunityIcons name="chevron-left" color={'black'} size={30} />
-      </TouchableOpacity>
-      <Text style={[TextStyle.title, {left: 30, top: '15%'}]}>Sign in</Text>
+      <Text style={[TextStyle.title, {left: 30, top: '10%'}]}>Sign in</Text>
       <View
         style={{
           height: height * 0.5,
@@ -30,12 +26,16 @@ const Login = () => {
           top: '15%',
         }}>
         <Image
-          source={require('../assets/png/Apple.png')} 
-          style={{width: 80, height: 80}}
+          source={require('../assets/png/Logo.png')}
+          style={{width: 135, height: 120}}
         />
-        <Input />
-        <Input />
-        <Button />
+        <Input nameframe={'cellphone'} text={'Enter your phone number'} />
+        <Input
+          nameframe={'lock-outline'}
+          iconName={'eye-off-outline'}
+          text={'Your password'}
+        />
+        <Button navigation={navigation} destination="Verification" />
         <TouchableOpacity style={{alignSelf: 'center'}}>
           <Text style={TextStyle.heading2}>Forgot Password?</Text>
         </TouchableOpacity>
@@ -68,7 +68,10 @@ const Login = () => {
           />
         </Pressable>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Register');
+        }}>
         <Text
           style={[TextStyle.heading2, {alignSelf: 'center', marginBottom: 10}]}>
           Already haven't an account? Signup
