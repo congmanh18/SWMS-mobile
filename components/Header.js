@@ -3,7 +3,7 @@ import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TextStyle from './TextStyle';
 
-const Header = ({navigation, destination}) => {
+const Header = ({navigation, destination, name}) => {
   return (
     <View
       style={{
@@ -28,7 +28,7 @@ const Header = ({navigation, destination}) => {
           TextStyle.content,
           {textAlign: 'center', marginLeft: 10, fontWeight: 500},
         ]}>
-        Chung cu WestView
+        {name}
       </Text>
     </View>
   );

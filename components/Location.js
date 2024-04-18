@@ -12,14 +12,14 @@ import LinearGradient from 'react-native-linear-gradient';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TextStyle from './TextStyle.js';
 
-const Location = ({navigation, destination, locaName, address, source}) => {
+const Location = ({id, navigation, destination, locaName, address, source}) => {
   const [state, setState] = useState('');
 
   return (
     <Pressable
       style={styles.frame}
       onPress={() => {
-        navigation.navigate(destination);
+        navigation.navigate(destination, {id});
       }}>
       <Image
         source={source}

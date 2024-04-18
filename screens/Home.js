@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   StyleSheet,
@@ -15,6 +15,10 @@ import TextStyle from '../components/TextStyle.js';
 import Location from '../components/Location.js';
 
 const Home = ({navigation}) => {
+  const [location, setLocation] = useState(null);
+
+  useEffect(() => {}, []);
+
   return (
     <View style={styles.container}>
       <View
@@ -25,7 +29,8 @@ const Home = ({navigation}) => {
           paddingTop: 10,
           paddingBottom: 10,
         }}>
-        <View
+        <Pressable
+          onPress={() => navigation.navigate('Profile')}
           style={{
             height: 70,
             width: 70,
@@ -33,7 +38,7 @@ const Home = ({navigation}) => {
             borderRadius: 50,
             backgroundColor: 'red',
             borderWidth: 1,
-          }}></View>
+          }}></Pressable>
         <Text style={[TextStyle.content, {marginLeft: 10, fontWeight: 500}]}>
           Nguyen Cong Manh
         </Text>
@@ -61,39 +66,19 @@ const Home = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Location
-            locaName={'Chung cu WestView'}
-            address={'TT.Tan Tuc, Binh Chanh, Ho Chi Minh City'}
-            source={require('../assets/png/Google.png')}
-            navigation={navigation}
-            destination="Area"
-          />
-
-          <Location
-            locaName={'Dai hoc cong nghiep'}
-            address={'TT.Tan Tuc, Binh Chanh, Ho Chi Minh City'}
-            source={require('../assets/png/Apple.png')}
-          />
-          <Location
-            locaName={'Chung cu WestView'}
-            address={'TT.Tan Tuc, Binh Chanh, Ho Chi Minh City'}
-            source={require('../assets/png/a.png')}
-          />
-          <Location
-            locaName={'Dai hoc cong nghiep'}
-            address={'TT.Tan Tuc, Binh Chanh, Ho Chi Minh City'}
-            source={require('../assets/png/a.png')}
-          />
-          <Location
-            locaName={'Chung cu WestView'}
-            address={'TT.Tan Tuc, Binh Chanh, Ho Chi Minh City'}
-            source={require('../assets/png/a.png')}
-          />
-          <Location
-            locaName={'Dai hoc cong nghiep'}
-            address={'TT.Tan Tuc, Binh Chanh, Ho Chi Minh City'}
-            source={require('../assets/png/a.png')}
-          />
+          {location?.map(item => {
+            return (
+              <Location
+                key={item.id}
+                locaName={item.locaName}
+                address={item.address}
+                source={require('../assets/png/Google.png')}
+                navigation={navigation}
+                destination="Area"
+                id={item.id}
+              />
+            );
+          })}
         </View>
       </ScrollView>
     </View>

@@ -20,13 +20,14 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-
 import Register from './screens/Register';
 import Login from './screens/Login';
 import Verification from './screens/Verification';
 import Home from './screens/Home';
 import Area from './screens/Area';
 import Header from './components/Header';
+import Transaction from './screens/Transaction';
+import Profile from './screens/Profile';
 const Stack = createStackNavigator();
 
 type SectionProps = PropsWithChildren<{
@@ -97,6 +98,16 @@ function App() {
             <Stack.Screen
               name="Area"
               component={Area}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Transaction"
+              component={Transaction}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Profile"
+              component={Profile}
               options={{headerShown: false}}
             />
           </Stack.Navigator>

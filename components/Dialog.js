@@ -12,6 +12,8 @@ const Dialog = ({
   onClose,
   locaName,
   address,
+  navigation,
+  destination,
 }) => {
   return (
     <Modal
@@ -31,7 +33,7 @@ const Dialog = ({
           <TouchableOpacity onPress={onClose} style={styles.button}>
             <Text style={styles.buttonText}>Close</Text>
           </TouchableOpacity>
-          <Button />
+          <Button navigation={navigation} destination={destination} />
         </View>
       </View>
     </Modal>

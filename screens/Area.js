@@ -27,7 +27,11 @@ const Area = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} destination={'Home'} />
+      <Header
+        name={'Chung cu WestView'}
+        navigation={navigation}
+        destination={'Home'}
+      />
       <Thumpnail
         locaName={'Chung cu WestView'}
         address={'TT.Tan Tuc, Binh Chanh, Ho Chi Minh City'}
@@ -65,6 +69,8 @@ const Area = ({navigation}) => {
             onClose={closeDialog}
             title="Dialog Title"
             message="This is a simple dialog message."
+            navigation={navigation}
+            destination={'Transaction'}
           />
         </View>
       </ScrollView>

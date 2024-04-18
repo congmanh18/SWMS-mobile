@@ -13,20 +13,16 @@ import Header from '../components/Header.js';
 import TrashBin from '../components/TrashBin.js';
 import Dialog from '../components/Dialog.js';
 
-const Transaction = ({navigation}) => {
+const Profile = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header
-        name={'Transaction'}
-        navigation={navigation}
-        destination={'Home'}
-      />
+      <Header name={'Profile'} navigation={navigation} destination={'Home'} />
       <View style={styles.frame}></View>
     </View>
   );
 };
 
-export default Transaction;
+export default Profile;
 
 const styles = StyleSheet.create({
   container: {
