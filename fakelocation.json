@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "locaName": "Industrial University",
+    "address": "New York, NY",
+    "source": "./assets/png/a.png"
+  },
+  {
+    "id": 2,
+    "locaName": "Eiffel Tower",
+    "address": "Paris, France",
+    "source": "./assets/png/a.png"
+  }
+]

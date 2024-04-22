@@ -7,7 +7,7 @@ const Search = ({iconName, text}) => {
 
   return (
     <View style={styles.frame}>
-      <MaterialCommunityIcons name={iconName} color={'black'} size={30} />
+      <MaterialCommunityIcons name={iconName} color={'#005249'} size={25} />
       <TextInput
         value={state}
         style={{marginLeft: 10, color: '#747688', width: 260}}
@@ -22,16 +22,11 @@ export default Search;
 const styles = StyleSheet.create({
   frame: {
     flexDirection: 'row',
-    padding: 10,
-    height: 70,
-    width: '90%',
+    paddingLeft: 15,
+    height: 40,
+    width: '95%',
     alignItems: 'center',
-    backgroundColor: '#DDEACE',
-    borderRadius: 15,
-    marginBottom: 10,
-  },
-  rightposition: {
-    position: 'absolute',
-    right: '10%',
+    backgroundColor: 'white',
+    borderRadius: 5,
   },
 });

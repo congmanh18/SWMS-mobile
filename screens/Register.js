@@ -11,6 +11,8 @@ import {
 import TextStyle from '../components/TextStyle.js';
 import Input from '../components/Input.js';
 import Button from '../components/Button.js';
+import Apple from '../assets/svg/Apple.svg';
+import Google from '../assets/svg/Google.svg';
 const Register = ({navigation}) => {
   const {height} = Dimensions.get('window');
 
@@ -37,7 +39,11 @@ const Register = ({navigation}) => {
           iconName={'eye-off-outline'}
           text={'Confirm your password'}
         />
-        <Button navigation={navigation} destination="Login" />
+        <Button
+          navigation={navigation}
+          destination="Verification"
+          name={'sign up'}
+        />
       </View>
       <Text
         style={[TextStyle.heading1, {marginTop: '50%', alignSelf: 'center'}]}>
@@ -55,16 +61,10 @@ const Register = ({navigation}) => {
           margin: 30,
         }}>
         <Pressable>
-          <Image
-            source={require('../assets/png/Google.png')}
-            style={{width: 50, height: 50}}
-          />
+          <Google width={50} height={50} />
         </Pressable>
         <Pressable>
-          <Image
-            source={require('../assets/png/Apple.png')}
-            style={{width: 50, height: 50}}
-          />
+          <Apple width={50} height={50} />
         </Pressable>
       </View>
       <TouchableOpacity

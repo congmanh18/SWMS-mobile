@@ -33,10 +33,29 @@ const TextStyle = StyleSheet.create({
     fontSize: 36,
     color: 'black',
   },
+  upperBold: {
+    fontSize: 18,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    color: 'black',
+  },
   content: {
     fontSize: 16,
     textTransform: 'uppercase',
     color: 'black',
+  },
+  title3: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  message: {
+    fontSize: 15,
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    textAlign: 'center',
+    alignItems: 'center',
   },
 });
 

@@ -7,74 +7,77 @@ import {
   Dimensions,
   Button,
   ScrollView,
+  ImageBackground, // Thêm import
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Thumpnail from '../components/Thumpnail.js';
 import Header from '../components/Header.js';
 import TrashBin from '../components/TrashBin.js';
 import Dialog from '../components/Dialog.js';
+import faketrash from '../faketrash.json';
 
-const Area = ({navigation}) => {
+const Area = ({navigation, route}) => {
+  const {locaName} = route.params;
+  const [selectedTrashBin, setSelectedTrashBin] = useState(null);
   const [dialogVisible, setDialogVisible] = useState(false);
+  const [trashbin, setTrashBin] = useState(faketrash);
 
-  const openDialog = () => {
+  const openDialog = id => {
+    setSelectedTrashBin(id);
     setDialogVisible(true);
   };
 
   const closeDialog = () => {
     setDialogVisible(false);
+    setSelectedTrashBin(null);
   };
 
   return (
-    <View style={styles.container}>
-      <Header
-        name={'Chung cu WestView'}
-        navigation={navigation}
-        destination={'Home'}
-      />
+    <ImageBackground
+      source={require('../assets/png/Google.png')}
+      style={styles.container}>
+      <View style={styles.overlay}></View>
+      <Header name={locaName} navigation={navigation} destination={'MyTabs'} />
       <Thumpnail
-        locaName={'Chung cu WestView'}
-        address={'TT.Tan Tuc, Binh Chanh, Ho Chi Minh City'}
         source={require('../assets/png/Google.png')}
         navigation={navigation}
         destination="Login"
       />
-      <ScrollView
-        style={{
-          height: '100%',
-          width: '100%',
-        }}>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <TrashBin
-            id={'231002'}
-            distance={'500'}
-            time={'10ph'}
-            locaName={'Chung cu WestView'}
-            address={'TT.Tan Tuc, Binh Chanh, Ho Chi Minh City'}
-            source={require('../assets/png/Google.png')}
-            onPress={openDialog}
-          />
-          <Dialog
-            id={'231002'}
-            locaName={'Chung cu WestView'}
-            percent={'90%'}
-            distance={'100m'}
-            time={'10ph'}
-            address={'so 1 Nguyen Van Bao, Ho Chi Minh City'}
-            visible={dialogVisible}
-            onClose={closeDialog}
-            title="Dialog Title"
-            message="This is a simple dialog message."
-            navigation={navigation}
-            destination={'Transaction'}
-          />
+      <ScrollView style={{flex: 1}}>
+        <View style={styles.content}>
+          {trashbin?.map(item => {
+            return (
+              <TrashBin
+                key={item.id}
+                id={item.id}
+                distance={item.distance}
+                time={item.time}
+                locaName={locaName}
+                percent={item.percent}
+                address={item.address}
+                source={require('../assets/png/Google.png')}
+                onPress={() => openDialog(item)}
+              />
+            );
+          })}
+          {selectedTrashBin && (
+            <Dialog
+              id={selectedTrashBin.id}
+              percent={'90%'}
+              distance={selectedTrashBin.distance}
+              time={selectedTrashBin.time}
+              address={selectedTrashBin.address}
+              navigation={navigation}
+              destination={'Transaction'}
+              visible={dialogVisible}
+              onClose={closeDialog}
+              title="Dialog Title"
+              message="This is a simple dialog message."
+            />
+          )}
         </View>
       </ScrollView>
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -83,25 +86,18 @@ export default Area;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-  frame: {
-    flexDirection: 'row',
-    padding: 10,
-    height: 60,
-    width: 270,
-    alignItems: 'center',
+    resizeMode: 'cover',
     justifyContent: 'center',
-    backgroundColor: '#79D45C',
-    borderRadius: 15,
+    alignItems: 'center',
   },
-  text: {
-    color: 'white',
-    textAlign: 'center',
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    flex: 1,
   },
-  rightposition: {
-    position: 'absolute',
-    right: '10%',
+  content: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: 20,
   },
 });

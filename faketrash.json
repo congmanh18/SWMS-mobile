@@ -1,0 +1,74 @@
+[
+  {
+    "id": "231002",
+    "distance": "20",
+    "time": "10ph",
+    "address": "12 đường số 2, khu B",
+    "source": "../assets/png/Google.png",
+    "percent": "20"
+  },
+  {
+    "id": "231003",
+    "distance": "600",
+    "time": "12ph",
+    "address": "12 đường số 2, khu B",
+    "source": "../assets/png/Google.png",
+    "percent": "20"
+  },
+  {
+    "id": "231004",
+    "distance": "700",
+    "time": "15ph",
+    "address": "12 đường số 2, khu B",
+    "source": "../assets/png/Google.png",
+    "percent": "20"
+  },
+  {
+    "id": "231005",
+    "distance": "300",
+    "time": "5 phút",
+    "address": "15 đường số 2, khu A",
+    "source": "../assets/png/Google.png",
+    "percent": "20"
+  },
+  {
+    "id": "231006",
+    "distance": "500",
+    "time": "10 phút",
+    "address": "TT. Tân Túc, Bình Chánh, Thành phố Hồ Chí Minh",
+    "source": "../assets/png/Google.png",
+    "percent": "20"
+  },
+  {
+    "id": "231007",
+    "distance": "700",
+    "time": "15 phút",
+    "address": "456 Đường DEF, Quận UVW, Thành phố Hồ Chí Minh",
+    "source": "../assets/png/Google.png",
+    "percent": "20"
+  },
+  {
+    "id": "231008",
+    "distance": "300",
+    "time": "5 phút",
+    "address": "15 đường số 2, khu A",
+    "source": "../assets/png/Google.png",
+    "percent": "20"
+  },
+  {
+    "id": "231009",
+    "distance": "500",
+    "time": "10 phút",
+    "address": "TT. Tân Túc, Bình Chánh, Thành phố Hồ Chí Minh",
+    "source": "../assets/png/Google.png",
+    "percent": "20"
+  },
+  {
+    "id": "231010",
+    "distance": "700",
+    "time": "15 phút",
+    "address": "456 Đường DEF, Quận UVW, Thành phố Hồ Chí Minh",
+    "source": "../assets/png/Google.png",
+    "percent": "20"
+  }
+]

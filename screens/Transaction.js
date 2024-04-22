@@ -6,12 +6,14 @@ import {
   TouchableOpacity,
   Dimensions,
   ScrollView,
+  TextInput,
 } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Thumpnail from '../components/Thumpnail.js';
 import Header from '../components/Header.js';
-import TrashBin from '../components/TrashBin.js';
-import Dialog from '../components/Dialog.js';
+import InProcess from '../assets/svg/Transaction1.svg';
+import Done from '../assets/svg/Transaction2.svg';
+import Button from '../components/Button.js';
+import TextStyle from '../components/TextStyle.js';
+import Camplus from '../assets/svg/Camplus.svg';
 
 const Transaction = ({navigation}) => {
   return (
@@ -19,9 +21,87 @@ const Transaction = ({navigation}) => {
       <Header
         name={'Transaction'}
         navigation={navigation}
-        destination={'Home'}
+        destination={'Area'}
       />
-      <View style={styles.frame}></View>
+      <View style={styles.frame}>
+        <View
+          style={{
+            position: 'absolute',
+            top: 10,
+            alignSelf: 'center',
+          }}>
+          <InProcess width={70} height={70} />
+        </View>
+        {/* <Done width={70} height={70} /> */}
+        <View style={styles.rowContainer}>
+          <Text style={TextStyle.title3}>Name: </Text>
+          <Text style={TextStyle.message}></Text>
+        </View>
+        <View style={styles.rowContainer}>
+          <Text style={TextStyle.title3}>Role: </Text>
+          <Text style={TextStyle.message}></Text>
+        </View>
+        <View style={styles.rowContainer}>
+          <Text style={TextStyle.title3}>ID: </Text>
+          <Text style={TextStyle.message}></Text>
+        </View>
+        <View style={styles.rowContainer}>
+          <Text style={TextStyle.title3}>Address: </Text>
+          <Text style={TextStyle.message}></Text>
+        </View>
+        <View style={styles.rowContainer}>
+          <Text style={TextStyle.title3}>Status: </Text>
+          <Text style={TextStyle.message}></Text>
+        </View>
+        <View style={styles.rowContainer}>
+          <Text style={TextStyle.title3}>Weight: </Text>
+          <View
+            style={{
+              width: 200,
+              height: 30,
+              backgroundColor: 'white',
+              borderRadius: 10,
+            }}>
+            <Text style={[TextStyle.message, {padding: 5}]}>300</Text>
+          </View>
+        </View>
+        <View style={styles.rowContainer}>
+          <Text style={TextStyle.title3}>Description: </Text>
+          <Text style={TextStyle.message}></Text>
+        </View>
+        <View
+          style={{
+            width: 300,
+            height: 100,
+            backgroundColor: 'white',
+            borderRadius: 10,
+          }}>
+          <TextInput maxLength={50} style={{padding: 5}} />
+        </View>
+        <View style={styles.rowContainer}>
+          <Text style={TextStyle.title3}>Proof: </Text>
+          <Text style={TextStyle.message}></Text>
+        </View>
+        <View
+          style={{
+            width: 300,
+            height: 200,
+            backgroundColor: 'black',
+            borderRadius: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Camplus />
+        </View>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 10,
+            alignSelf: 'center',
+          }}>
+          <Button navigation={null} destination={null} name={'save'} />
+        </View>
+      </View>
     </View>
   );
 };
@@ -34,12 +114,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
   },
+  rowContainer: {
+    margin: 3,
+    flexDirection: 'row',
+    textAlign: 'center',
+    alignItems: 'center',
+  },
   frame: {
     margin: '2%',
     height: '92%',
     width: '90%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: '5%',
+    paddingTop: '25%',
     backgroundColor: '#A5D398',
     borderRadius: 15,
   },

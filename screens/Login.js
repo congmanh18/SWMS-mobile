@@ -11,6 +11,10 @@ import {
 import TextStyle from '../components/TextStyle.js';
 import Input from '../components/Input.js';
 import Button from '../components/Button.js';
+import Google from '../assets/svg/Google.svg';
+import Apple from '../assets/svg/Apple.svg';
+import Logo from '../assets/svg/Logo.svg';
+
 const Login = ({navigation}) => {
   const {height} = Dimensions.get('window');
 
@@ -25,17 +29,14 @@ const Login = ({navigation}) => {
           alignSelf: 'center',
           top: '15%',
         }}>
-        <Image
-          source={require('../assets/png/Logo.png')}
-          style={{width: 135, height: 120}}
-        />
+        <Logo width={135} height={120} />
         <Input nameframe={'cellphone'} text={'Enter your phone number'} />
         <Input
           nameframe={'lock-outline'}
           iconName={'eye-off-outline'}
           text={'Your password'}
         />
-        <Button navigation={navigation} destination="Verification" />
+        <Button navigation={navigation} destination="MyTabs" name={'sign in'} />
         <TouchableOpacity style={{alignSelf: 'center'}}>
           <Text style={TextStyle.heading2}>Forgot Password?</Text>
         </TouchableOpacity>
@@ -56,16 +57,10 @@ const Login = ({navigation}) => {
           margin: 30,
         }}>
         <Pressable>
-          <Image
-            source={require('../assets/png/Google.png')}
-            style={{width: 50, height: 50}}
-          />
+          <Google width={50} height={50} />
         </Pressable>
         <Pressable>
-          <Image
-            source={require('../assets/png/Apple.png')}
-            style={{width: 50, height: 50}}
-          />
+          <Apple width={50} height={50} />
         </Pressable>
       </View>
       <TouchableOpacity

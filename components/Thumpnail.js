@@ -8,11 +8,10 @@ import {
   Pressable,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Mapmaker from '../assets/svg/MapMaker.svg';
 import TextStyle from './TextStyle.js';
 
-const Thumpnail = ({navigation, destination, locaName, address, source}) => {
+const Thumpnail = ({navigation, destination, source}) => {
   const [state, setState] = useState('');
 
   return (
@@ -29,11 +28,7 @@ const Thumpnail = ({navigation, destination, locaName, address, source}) => {
         style={{
           position: 'absolute',
         }}>
-        <MaterialCommunityIcons
-          name="map-marker-radius-outline"
-          color={'white'}
-          size={40}
-        />
+        <Mapmaker />
       </View>
     </Pressable>
   );

@@ -9,6 +9,7 @@ import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
 import {
   SafeAreaView,
@@ -25,10 +26,103 @@ import Login from './screens/Login';
 import Verification from './screens/Verification';
 import Home from './screens/Home';
 import Area from './screens/Area';
-import Header from './components/Header';
 import Transaction from './screens/Transaction';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Profile from './screens/Profile';
+import Setting from './screens/Settings';
+import Map from './screens/Map';
+import Graph from './screens/Graph';
+import QRCode from './screens/QRCode';
+
 const Stack = createStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
+
+const MyTabs = () => {
+  return (
+    <Tab.Navigator
+      shifting={true}
+      initialRouteName="Home"
+      // inactiveColor="#E8EBB5"
+      activeColor="#005249"
+      // screenOptions={
+      //   {
+      //    }
+      // }
+      barStyle={{
+        height: '9%',
+      }}
+      backBehavior={'initialRoute'}>
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color, focused}) => (
+            <MaterialCommunityIcons
+              name={focused ? 'home' : 'home-outline'}
+              color={color}
+              size={26}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Map"
+        component={Map}
+        options={{
+          tabBarIcon: ({color, focused}) => (
+            <MaterialCommunityIcons
+              name={focused ? 'map-marker' : 'map-marker-outline'}
+              color={color}
+              size={26}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Scan"
+        component={QRCode}
+        options={{
+          tabBarIcon: ({color, focused}) => (
+            <MaterialCommunityIcons
+              name={focused ? 'qrcode-scan' : 'qrcode'}
+              color={color}
+              size={26}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Graph"
+        component={Graph}
+        options={{
+          tabBarIcon: ({color, focused}) => (
+            <MaterialCommunityIcons
+              name={focused ? 'chart-box' : 'chart-box-outline'}
+              color={color}
+              size={26}
+            />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Settings"
+        component={Setting}
+        options={{
+          tabBarLabel: 'Setting',
+          tabBarIcon: ({color, focused}) => (
+            <MaterialCommunityIcons
+              name={focused ? 'cog' : 'cog-outline'}
+              color={color}
+              size={26}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -76,8 +170,8 @@ function App() {
         <View style={styles.content}>
           <Stack.Navigator>
             <Stack.Screen
-              name="Home"
-              component={Home}
+              name="MyTabs"
+              component={MyTabs}
               options={{headerShown: false}}
             />
             <Stack.Screen
@@ -96,11 +190,6 @@ function App() {
               options={{headerShown: false}}
             />
             <Stack.Screen
-              name="Area"
-              component={Area}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
               name="Transaction"
               component={Transaction}
               options={{headerShown: false}}
@@ -108,6 +197,11 @@ function App() {
             <Stack.Screen
               name="Profile"
               component={Profile}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Area"
+              component={Area}
               options={{headerShown: false}}
             />
           </Stack.Navigator>

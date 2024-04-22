@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-const Button = ({navigation, destination}) => {
+import Next from '../assets/svg/Next.svg';
+const Button = ({navigation, destination, name}) => {
   return (
     <TouchableOpacity
       onPress={() => {
         navigation.navigate(destination);
       }}
       style={styles.frame}>
-      <Text style={styles.text}>SIGN UP</Text>
+      <Text style={styles.text}>{name}</Text>
       <View style={styles.rightposition}>
-        <MaterialCommunityIcons name="login" color={'white'} size={25} />
+        <Next width={25} height={25} />
       </View>
     </TouchableOpacity>
   );
@@ -27,10 +27,11 @@ const styles = StyleSheet.create({
     width: 270,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#79D45C',
+    backgroundColor: '#5DA646',
     borderRadius: 15,
   },
   text: {
+    textTransform: 'uppercase',
     color: 'white',
     textAlign: 'center',
   },

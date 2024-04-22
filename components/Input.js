@@ -21,35 +21,7 @@ const Input = ({iconName, nameframe, text}) => {
   );
 };
 
-const InputNumber = () => {
-  const [number, setNumber] = useState('');
-
-  const handleNumberChange = text => {
-    // Xác thực xem text có phải là một ký tự số không
-    if (/^\d*$/.test(text)) {
-      // Nếu là số, cập nhật giá trị state
-      setNumber(text);
-    }
-  };
-
-  return (
-    <View style={styles.square}>
-      <TextInput
-        value={number}
-        style={[
-          TextStyle.heading1,
-          {color: '#00CC33', width: 30, textAlign: 'center'},
-        ]}
-        onChangeText={handleNumberChange}
-        maxLength={1} // Giới hạn chỉ nhập 1 ký tự
-        keyboardType="numeric" // Bàn phím chỉ hiển thị số
-      />
-    </View>
-  );
-};
-
 export default Input;
-export {InputNumber};
 
 const styles = StyleSheet.create({
   square: {
@@ -57,6 +29,7 @@ const styles = StyleSheet.create({
     width: 55,
     borderWidth: 1,
     borderRadius: 15,
+    borderColor: '#EEF2FE',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -74,5 +47,8 @@ const styles = StyleSheet.create({
   rightposition: {
     position: 'absolute',
     right: '10%',
+  },
+  focused: {
+    borderColor: 'black',
   },
 });

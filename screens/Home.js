@@ -13,12 +13,11 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Search from '../components/Search.js';
 import TextStyle from '../components/TextStyle.js';
 import Location from '../components/Location.js';
+import fakelocation from '../fakelocation.json';
+import CardInfo from '../components/CardInfo.js';
 
 const Home = ({navigation}) => {
-  const [location, setLocation] = useState(null);
-
-  useEffect(() => {}, []);
-
+  const [location, setLocation] = useState(fakelocation);
   return (
     <View style={styles.container}>
       <View
@@ -26,33 +25,13 @@ const Home = ({navigation}) => {
           flexDirection: 'row',
           width: '100%',
           alignItems: 'center',
-          paddingTop: 10,
-          paddingBottom: 10,
+          justifyContent: 'center',
         }}>
-        <Pressable
-          onPress={() => navigation.navigate('Profile')}
-          style={{
-            height: 70,
-            width: 70,
-            marginLeft: 10,
-            borderRadius: 50,
-            backgroundColor: 'red',
-            borderWidth: 1,
-          }}></Pressable>
-        <Text style={[TextStyle.content, {marginLeft: 10, fontWeight: 500}]}>
-          Nguyen Cong Manh
-        </Text>
+        <CardInfo navigation={navigation} destination={'Profile'} />
         <TouchableOpacity style={styles.rightposition}>
           <MaterialCommunityIcons name={'bell'} color={'red'} size={30} />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={{position: 'absolute', left: 25, top: '7%'}}
-        onPress={() => {
-          navigation.navigate('Login');
-        }}>
-        <MaterialCommunityIcons name="chevron-left" color={'black'} size={30} />
-      </TouchableOpacity>
 
       <Search iconName={'map-search'} text={'Enter your work address'} />
 
@@ -72,7 +51,7 @@ const Home = ({navigation}) => {
                 key={item.id}
                 locaName={item.locaName}
                 address={item.address}
-                source={require('../assets/png/Google.png')}
+                source={item.source}
                 navigation={navigation}
                 destination="Area"
                 id={item.id}
@@ -90,7 +69,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F9F9F9',
     alignItems: 'center',
   },
   frame: {
