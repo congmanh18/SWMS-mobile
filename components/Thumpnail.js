@@ -22,7 +22,7 @@ const Thumpnail = ({navigation, destination, source}) => {
       }}>
       <Image
         source={source}
-        style={{width: '100%', height: '100%', borderRadius: 15}}
+        style={{width: '100%', height: '100%', borderRadius: 5}}
       />
       <View
         style={{
@@ -40,11 +40,9 @@ const styles = StyleSheet.create({
   frame: {
     margin: 5,
     height: 112,
-    width: '90%',
+    width: '95%',
     alignItems: 'center',
-    backgroundColor: '#55EE25',
     borderColor: '#EEF2FE',
-    borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -1,1 +1,2 @@
 ./gradlew clean build --refresh-dependencies
+npx react-native-asset //config_font

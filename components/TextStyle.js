@@ -34,7 +34,7 @@ const TextStyle = StyleSheet.create({
     color: 'black',
   },
   upperBold: {
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: '900',
     textTransform: 'uppercase',
     color: 'black',
@@ -50,6 +50,10 @@ const TextStyle = StyleSheet.create({
     color: 'black',
   },
   message: {
+    fontSize: 15,
+  },
+  message2: {
+    color: '#F9F9F9',
     fontSize: 15,
   },
   rowContainer: {

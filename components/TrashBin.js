@@ -6,45 +6,68 @@ import {
   Text,
   Image,
   Pressable,
+  TouchableOpacity,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import LinearGradient from 'react-native-linear-gradient';
 import TextStyle from './TextStyle.js';
-import ProgressBar from './ProgressBar.js';
 import Trash from '../assets/svg/TrashBin.svg'; // import SVG
+import Distance from '../assets/svg/Distance.svg';
+import Time from '../assets/svg/Time.svg';
+import DiscountPercent from '../assets/svg/discount-percent-svgrepo-com.svg';
 
 const TrashBin = ({onPress, id, distance, time, percent}) => {
   const [state, setState] = useState('');
 
   return (
-    <Pressable style={[styles.frame, {opacity: 0.8}]} onPress={onPress}>
+    <TouchableOpacity style={[styles.frame, {opacity: 1}]} onPress={onPress}>
       <View style={{margin: 10}}>
-        <Trash width={50} height={50} />
+        <Trash width={40} height={40} />
       </View>
       <View style={{width: '85%'}}>
-        <Text style={TextStyle.title3}>ID: {id}</Text>
-        <ProgressBar width={'70%'} />
+        <Text
+          style={{
+            fontFamily: 'MontserratAlternates-ExtraBold',
+            color: 'black',
+          }}>
+          ID: {id}
+        </Text>
         <View style={styles.rowContainer}>
-          <Text style={TextStyle.title3}>Distance: </Text>
-          <Text style={TextStyle.message}>{distance}</Text>
-        </View>
-        <View style={styles.rowContainer}>
-          <Text style={TextStyle.title3}>Time: </Text>
-          <Text style={TextStyle.message}>{time}</Text>
+          <View style={{marginRight: 10}}>
+            <Distance width={20} height={20} />
+            <Time width={20} height={20} />
+          </View>
+          <View>
+            <View style={styles.rowContainer}>
+              <Text style={TextStyle.title3}>Distance: </Text>
+              <Text style={TextStyle.message}>{distance}m</Text>
+            </View>
+            <View style={styles.rowContainer}>
+              <Text style={TextStyle.title3}>Estimated full time: </Text>
+              <Text style={TextStyle.message}>{time} minute</Text>
+            </View>
+          </View>
         </View>
       </View>
-      <Text
+      <View
         style={{
-          color: 'black',
-          fontWeight: 'bold',
+          flexDirection: 'row',
           position: 'absolute',
-          fontSize: 27,
-          right: '2%',
+          right: '5%',
+          top: '10%',
+          alignItems: 'center',
         }}>
-        {percent}%
-      </Text>
-    </Pressable>
+        <Text
+          style={{
+            color: 'black',
+            fontSize: 33,
+            fontFamily: 'Montserrat-Bold',
+          }}>
+          {percent}
+        </Text>
+        <DiscountPercent width={15} height={15} />
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -57,7 +80,7 @@ const styles = StyleSheet.create({
     width: '95%',
     backgroundColor: '#62FF5B',
     borderColor: '#EEF2FE',
-    borderRadius: 15,
+    borderRadius: 5,
     alignItems: 'center',
     flexDirection: 'row',
   },

@@ -9,6 +9,9 @@ import {
   Pressable,
   ScrollView,
 } from 'react-native';
+
+import LinearGradient from 'react-native-linear-gradient';
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Search from '../components/Search.js';
 import TextStyle from '../components/TextStyle.js';
@@ -20,46 +23,60 @@ const Home = ({navigation}) => {
   const [location, setLocation] = useState(fakelocation);
   return (
     <View style={styles.container}>
-      <View
+      <LinearGradient
+        colors={[
+          'rgba(93, 166, 70, 1)',
+          'rgba(255, 255, 255, 0)',
+          'rgba(93, 166, 70, 1)',
+        ]}
+        start={{x: 0, y: 0}} // Start point of gradient
+        end={{x: 0, y: 1}} // End point of gradient
         style={{
-          flexDirection: 'row',
-          width: '100%',
           alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <CardInfo navigation={navigation} destination={'Profile'} />
-        <TouchableOpacity style={styles.rightposition}>
-          <MaterialCommunityIcons name={'bell'} color={'red'} size={30} />
-        </TouchableOpacity>
-      </View>
-
-      <Search iconName={'map-search'} text={'Enter your work address'} />
-
-      <ScrollView
-        style={{
-          height: '100%',
           width: '100%',
         }}>
         <View
           style={{
-            justifyContent: 'center',
+            flexDirection: 'row',
+            width: '100%',
             alignItems: 'center',
+            justifyContent: 'center',
           }}>
-          {location?.map(item => {
-            return (
-              <Location
-                key={item.id}
-                locaName={item.locaName}
-                address={item.address}
-                source={item.source}
-                navigation={navigation}
-                destination="Area"
-                id={item.id}
-              />
-            );
-          })}
+          <CardInfo navigation={navigation} destination={'Profile'} />
+          <TouchableOpacity style={styles.rightposition}>
+            <MaterialCommunityIcons name={'bell'} color={'red'} size={30} />
+          </TouchableOpacity>
         </View>
-      </ScrollView>
+
+        <Search iconName={'map-search'} text={'Enter your work address'} />
+
+        <ScrollView
+          style={{
+            height: '100%',
+            width: '100%',
+          }}>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginBottom: '43%',
+            }}>
+            {location?.map(item => {
+              return (
+                <Location
+                  key={item.id}
+                  locaName={item.locaName}
+                  address={item.address}
+                  source={require('../assets/png/DHCN.png')}
+                  navigation={navigation}
+                  destination="Area"
+                  id={item.id}
+                />
+              );
+            })}
+          </View>
+        </ScrollView>
+      </LinearGradient>
     </View>
   );
 };

@@ -9,6 +9,8 @@ import {
   ScrollView,
   Settings,
 } from 'react-native';
+
+import LinearGradient from 'react-native-linear-gradient';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Block from '../components/Block';
 import TextStyle from '../components/TextStyle';
@@ -17,53 +19,64 @@ import CardInfo from '../components/CardInfo';
 const Setting = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <CardInfo navigation={navigation} destination={'Profile'} />
-      <View style={styles.setting}>
-        <Block
-          icon={'account-edit-outline'}
-          title={'My Account'}
-          content={'Make change to your account'}
-        />
-        <Block
-          icon={'qrcode-scan'}
-          title={'My Account'}
-          content={'Make change to your account'}
-        />
-        <Block
-          icon={'qrcode-scan'}
-          title={'QR Code Scan'}
-          content={'Make change to your account'}
-        />
-        <Block
-          icon={'lock-outline'}
-          title={'Face ID / Touch ID'}
-          content={'Manage your device security'}
-        />
-        <Block
-          icon={'shield-check-outline'}
-          title={'Two-Factor Authentication'}
-          content={'Further secure your account for safety'}
-        />
-        <Block
-          onPress={() => navigation.navigate('Login')}
-          icon={'logout'}
-          title={'Log out'}
-          content={'Further secure your account for safety'}
-        />
-        <Text style={[TextStyle.title3, {left: '5%', alignSelf: 'flex-start'}]}>
-          More
-        </Text>
-        <Block
-          icon={'logout'}
-          title={'Help & Support'}
-          content={'Further secure your account for safety'}
-        />
-        <Block
-          icon={'shield-check-outline'}
-          title={'About App'}
-          content={'Further secure your account for safety'}
-        />
-      </View>
+      <LinearGradient
+        colors={[
+          'rgba(93, 166, 70, 1)',
+          'rgba(255, 255, 255, 0)',
+          'rgba(93, 166, 70, 1)',
+        ]}
+        start={{x: 0, y: 0}}
+        end={{x: 0, y: 1}}
+        style={{height: '100%', width: '100%', alignItems: 'center'}}>
+        <CardInfo navigation={navigation} destination={'Profile'} />
+        <View style={styles.setting}>
+          <Block
+            icon={'account-edit-outline'}
+            title={'My Account'}
+            content={'Make change to your account'}
+          />
+          <Block
+            icon={'qrcode-scan'}
+            title={'My Account'}
+            content={'Make change to your account'}
+          />
+          <Block
+            icon={'qrcode-scan'}
+            title={'QR Code Scan'}
+            content={'Make change to your account'}
+          />
+          <Block
+            icon={'lock-outline'}
+            title={'Face ID / Touch ID'}
+            content={'Manage your device security'}
+          />
+          <Block
+            icon={'shield-check-outline'}
+            title={'Two-Factor Authentication'}
+            content={'Further secure your account for safety'}
+          />
+          <Block
+            onPress={() => navigation.navigate('Login')}
+            icon={'logout'}
+            title={'Log out'}
+            content={'Further secure your account for safety'}
+          />
+          <Text
+            style={[TextStyle.title3, {left: '5%', alignSelf: 'flex-start'}]}>
+            More
+          </Text>
+          <Block
+            icon={'logout'}
+            title={'Help & Support'}
+            content={'Further secure your account for safety'}
+          />
+          <Block
+            icon={'shield-check-outline'}
+            title={'About App'}
+            content={'Further secure your account for safety'}
+          />
+        </View>
+      </LinearGradient>
     </View>
   );
 };
@@ -86,8 +99,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   setting: {
-    backgroundColor: 'white',
-    height: '80%',
+    height: '100%',
     width: '95%',
     borderRadius: 5,
     alignItems: 'center',

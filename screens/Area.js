@@ -9,6 +9,9 @@ import {
   ScrollView,
   ImageBackground, // Thêm import
 } from 'react-native';
+
+import LinearGradient from 'react-native-linear-gradient';
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Thumpnail from '../components/Thumpnail.js';
 import Header from '../components/Header.js';
@@ -33,10 +36,16 @@ const Area = ({navigation, route}) => {
   };
 
   return (
-    <ImageBackground
-      source={require('../assets/png/Google.png')}
+    <LinearGradient
+      colors={[
+        'rgba(93, 166, 70, 1)',
+        'rgba(255, 255, 255, 0)',
+        'rgba(93, 166, 70, 1)',
+      ]}
+      start={{x: 0, y: 0}} // Start point of gradient
+      end={{x: 0, y: 1}} // End point of gradient
       style={styles.container}>
-      <View style={styles.overlay}></View>
+      {/* <View style={styles.overlay}></View> */}
       <Header name={locaName} navigation={navigation} destination={'MyTabs'} />
       <Thumpnail
         source={require('../assets/png/Google.png')}
@@ -77,7 +86,7 @@ const Area = ({navigation, route}) => {
           )}
         </View>
       </ScrollView>
-    </ImageBackground>
+    </LinearGradient>
   );
 };
 
@@ -98,6 +107,6 @@ const styles = StyleSheet.create({
   content: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 20,
+    paddingBottom: 10,
   },
 });

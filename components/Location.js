@@ -23,7 +23,7 @@ const Location = ({locaName, destination, address, source, navigation}) => {
       }}>
       <Image
         source={source}
-        style={{width: '100%', height: '100%', borderRadius: 15}}
+        style={{width: '100%', height: '100%', borderRadius: 5}}
       />
       <LinearGradient
         colors={[
@@ -31,14 +31,14 @@ const Location = ({locaName, destination, address, source, navigation}) => {
           'rgba(93, 166, 70, 0.9)',
           'rgba(255, 255, 255, 0)',
         ]}
-        start={{x: 0, y: 1}} // Start point of gradient
-        end={{x: 0, y: 0}} // End point of gradient
+        start={{x: 0, y: 1}}
+        end={{x: 0, y: 0}}
         style={[
           styles.bottomposition,
           {
             width: '100%',
-            borderBottomLeftRadius: 15,
-            borderBottomRightRadius: 15,
+            borderBottomLeftRadius: 5,
+            borderBottomRightRadius: 5,
             paddingBottom: 7,
             paddingTop: 7,
           },
@@ -46,7 +46,17 @@ const Location = ({locaName, destination, address, source, navigation}) => {
         <Text style={{color: 'black', fontWeight: '900', fontSize: 25}}>
           {locaName}
         </Text>
-        <Text style={[TextStyle.note, {color: 'white'}]}>{address}</Text>
+        <View style={{flexDirection: 'row'}}>
+          <MaterialCommunityIcons
+            name={'map-marker'}
+            color={'white'}
+            size={15}
+          />
+          <Text style={[TextStyle.note, {color: 'white'}]}>{address}</Text>
+        </View>
+        {/* longitude */}
+        <Text style={[TextStyle.note, {color: 'white'}]}>10°55'06.5"N </Text>
+        <Text style={[TextStyle.note, {color: 'white'}]}>106°43'38.5"E </Text>
       </LinearGradient>
     </Pressable>
   );
@@ -62,7 +72,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#55EE25',
     borderColor: '#EEF2FE',
-    borderRadius: 15,
+    borderRadius: 5,
   },
   rightposition: {
     position: 'absolute',

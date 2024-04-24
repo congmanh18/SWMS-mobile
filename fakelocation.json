@@ -2,11 +2,23 @@
   {
     "id": 1,
     "locaName": "Industrial University",
-    "address": "New York, NY",
-    "source": "./assets/png/a.png"
+    "address": "So 12, Nguyen Van Bao, p4, Go Vap",
+    "source": "./assets/png/chungcu.png"
   },
   {
     "id": 2,
+    "locaName": "Eiffel Tower",
+    "address": "Paris, France",
+    "source": "./assets/png/DHCN.png"
+  },
+  {
+    "id": 3,
+    "locaName": "Eiffel Tower",
+    "address": "Paris, France",
+    "source": "./assets/png/Google.png"
+  },
+  {
+    "id": 4,
     "locaName": "Eiffel Tower",
     "address": "Paris, France",
     "source": "./assets/png/a.png"

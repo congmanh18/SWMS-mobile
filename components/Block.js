@@ -41,12 +41,12 @@ export default Block;
 
 const styles = StyleSheet.create({
   frame: {
-    margin: 1,
+    margin: 0.5,
     height: 70,
     width: '98%',
     backgroundColor: 'white',
     borderColor: '#EEF2FE',
-    borderRadius: 15,
+    borderRadius: 5,
     alignItems: 'center',
     flexDirection: 'row',
   },

@@ -42,13 +42,14 @@ const MyTabs = () => {
     <Tab.Navigator
       shifting={true}
       initialRouteName="Home"
-      // inactiveColor="#E8EBB5"
-      activeColor="#005249"
+      inactiveColor="white"
+      activeColor="#214515"
       // screenOptions={
       //   {
       //    }
       // }
       barStyle={{
+        backgroundColor: '#5DA646',
         height: '9%',
       }}
       backBehavior={'initialRoute'}>

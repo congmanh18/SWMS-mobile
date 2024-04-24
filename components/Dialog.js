@@ -3,7 +3,9 @@ import {View, Text, Modal, StyleSheet, TouchableOpacity} from 'react-native';
 import Button from './Button';
 import ProgressBar from './ProgressBar';
 import TrashBin from '../assets/svg/TrashBin.svg'; // import SVG
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 const Dialog = ({
   id,
   percent,
@@ -23,11 +25,22 @@ const Dialog = ({
       onRequestClose={onClose}>
       <View style={styles.container}>
         <View style={styles.dialog}>
-          <View style={styles.rowContainer}>
+          <View
+            style={{
+              width: '80%',
+              height: '10%',
+              backgroundColor: 'white',
+              borderRadius: 5,
+              justifyContent: 'center',
+              alignSelf: 'center',
+              marginBottom: 20,
+            }}>
+            <Text style={[styles.title, {textAlign: 'center'}]}>ID: {id}</Text>
+          </View>
+          {/* <View style={styles.rowContainer}>
             <View style={{marginRight: 10}}>
               <TrashBin width={40} height={40} />
             </View>
-            <Text style={styles.title}>ID: {id}</Text>
             <TouchableOpacity
               onPress={onClose}
               style={{position: 'absolute', right: 0}}>
@@ -37,17 +50,18 @@ const Dialog = ({
                 size={30}
               />
             </TouchableOpacity>
-          </View>
-          <View style={{marginTop: 5}}>
-            <ProgressBar />
-          </View>
-          <View style={styles.rowContainer}>
-            <Text style={styles.title}>Status: </Text>
-            <Text style={styles.message}>{percent}</Text>
+          </View> */}
+          <View>
+            <ProgressBar numerator={40} denominator={50} iconName={'Weight'} />
+            <ProgressBar numerator={30} denominator={80} iconName={'Level'} />
           </View>
           <View style={styles.rowContainer}>
             <Text style={styles.title}>Distance: </Text>
             <Text style={styles.message}>{distance}</Text>
+          </View>
+          <View style={styles.rowContainer}>
+            <Text style={styles.title}>CO2: </Text>
+            <Text style={styles.message}>10</Text>
           </View>
           <View style={styles.rowContainer}>
             <Text style={styles.title}>Time: </Text>
@@ -57,6 +71,15 @@ const Dialog = ({
             <Text style={styles.title}>Address: </Text>
             <Text style={styles.message}>{address}</Text>
           </View>
+          <View style={styles.rowContainer}>
+            <Text style={styles.title}>Longitude: </Text>
+            <Text style={styles.message}>{address}</Text>
+          </View>
+          <View style={styles.rowContainer}>
+            <Text style={styles.title}>Latitude: </Text>
+            <Text style={styles.message}>{address}</Text>
+          </View>
+
           <View style={{alignSelf: 'center'}}>
             <Button
               navigation={navigation}
@@ -87,7 +110,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#62FF5B',
     borderRadius: 10,
     width: '95%',
-    height: '30%',
+    height: '50%',
     padding: 20,
   },
   title: {

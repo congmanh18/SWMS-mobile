@@ -21,25 +21,41 @@ const CardInfo = ({locaName, destination, address, source, navigation}) => {
       onPress={() => {
         navigation.navigate(destination, {locaName: locaName});
       }}>
-      <View
-        style={{
-          height: 90,
-          width: 90,
-          margin: 10,
-          borderRadius: 45,
-          backgroundColor: 'red',
-          borderWidth: 3,
-          borderColor: 'white',
-        }}>
-        <Image
-          source={require('../assets/png/avt.png')}
-          style={{width: '100%', height: '100%', borderRadius: 45}}
-        />
-      </View>
-      <View>
-        <Text style={TextStyle.upperBold}>Nguyen cong manh</Text>
-        <Text style={TextStyle.message}>@congmanh18</Text>
-      </View>
+      <Image
+        source={require('../assets/png/Google.png')}
+        style={[styles.frame, {borderRadius: 5, position: 'absolute'}]}
+      />
+      <LinearGradient
+        colors={['rgba(93, 166, 70, 1)', 'rgba(255, 255, 255, 0)']}
+        start={{x: 0, y: 1}}
+        end={{x: 1, y: 0}}
+        style={styles.frame}>
+        <View
+          style={{
+            height: 90,
+            width: 90,
+            margin: 10,
+            borderRadius: 45,
+            borderWidth: 3,
+            borderColor: 'white',
+            marginRight: 20,
+          }}>
+          <Image
+            source={require('../assets/png/avt.png')}
+            style={{width: '100%', height: '100%', borderRadius: 45}}
+          />
+        </View>
+        <View>
+          <Text style={TextStyle.upperBold}>cong manh</Text>
+          <Text style={TextStyle.message2}>@congmanh18</Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={[TextStyle.note, {color: 'white'}]}>Role: Staff </Text>
+            <Text style={[TextStyle.note, {color: 'white'}]}>
+              - Category: Fulltime
+            </Text>
+          </View>
+        </View>
+      </LinearGradient>
     </Pressable>
   );
 };
@@ -52,7 +68,6 @@ const styles = StyleSheet.create({
     height: 110,
     width: '95%',
     alignItems: 'center',
-    backgroundColor: '#A5D398',
     borderRadius: 5,
     flexDirection: 'row',
   },
@@ -60,5 +75,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: '10%',
   },
-  bottomposition: {position: 'absolute', bottom: '0%', paddingLeft: 10},
+  bottomposition: {
+    height: '100%',
+    position: 'absolute',
+    bottom: '0%',
+    paddingLeft: 10,
+  },
 });

@@ -2,63 +2,63 @@
   {
     "id": "231002",
     "distance": "20",
-    "time": "10ph",
+    "time": "10",
     "address": "12 đường số 2, khu B",
     "source": "../assets/png/Google.png",
-    "percent": "20"
+    "percent": "76"
   },
   {
     "id": "231003",
     "distance": "600",
-    "time": "12ph",
+    "time": "12",
     "address": "12 đường số 2, khu B",
     "source": "../assets/png/Google.png",
-    "percent": "20"
+    "percent": "10"
   },
   {
     "id": "231004",
     "distance": "700",
-    "time": "15ph",
+    "time": "15",
     "address": "12 đường số 2, khu B",
     "source": "../assets/png/Google.png",
-    "percent": "20"
+    "percent": "87"
   },
   {
     "id": "231005",
     "distance": "300",
-    "time": "5 phút",
+    "time": "5",
     "address": "15 đường số 2, khu A",
     "source": "../assets/png/Google.png",
-    "percent": "20"
+    "percent": "78"
   },
   {
     "id": "231006",
     "distance": "500",
-    "time": "10 phút",
+    "time": "10",
     "address": "TT. Tân Túc, Bình Chánh, Thành phố Hồ Chí Minh",
     "source": "../assets/png/Google.png",
-    "percent": "20"
+    "percent": "56"
   },
   {
     "id": "231007",
     "distance": "700",
-    "time": "15 phút",
+    "time": "15",
     "address": "456 Đường DEF, Quận UVW, Thành phố Hồ Chí Minh",
     "source": "../assets/png/Google.png",
-    "percent": "20"
+    "percent": "50"
   },
   {
     "id": "231008",
     "distance": "300",
-    "time": "5 phút",
+    "time": "5",
     "address": "15 đường số 2, khu A",
     "source": "../assets/png/Google.png",
-    "percent": "20"
+    "percent": "14"
   },
   {
     "id": "231009",
     "distance": "500",
-    "time": "10 phút",
+    "time": "10",
     "address": "TT. Tân Túc, Bình Chánh, Thành phố Hồ Chí Minh",
     "source": "../assets/png/Google.png",
     "percent": "20"
@@ -66,9 +66,65 @@
   {
     "id": "231010",
     "distance": "700",
-    "time": "15 phút",
+    "time": "15",
     "address": "456 Đường DEF, Quận UVW, Thành phố Hồ Chí Minh",
     "source": "../assets/png/Google.png",
     "percent": "20"
+  },
+  {
+    "id": "231011",
+    "distance": "20",
+    "time": "10",
+    "address": "12 đường số 2, khu B",
+    "source": "../assets/png/Google.png",
+    "percent": "76"
+  },
+  {
+    "id": "231012",
+    "distance": "600",
+    "time": "12",
+    "address": "12 đường số 2, khu B",
+    "source": "../assets/png/Google.png",
+    "percent": "10"
+  },
+  {
+    "id": "231013",
+    "distance": "700",
+    "time": "15",
+    "address": "12 đường số 2, khu B",
+    "source": "../assets/png/Google.png",
+    "percent": "87"
+  },
+  {
+    "id": "231014",
+    "distance": "300",
+    "time": "5",
+    "address": "15 đường số 2, khu A",
+    "source": "../assets/png/Google.png",
+    "percent": "78"
+  },
+  {
+    "id": "231015",
+    "distance": "500",
+    "time": "10",
+    "address": "TT. Tân Túc, Bình Chánh, Thành phố Hồ Chí Minh",
+    "source": "../assets/png/Google.png",
+    "percent": "11"
+  },
+  {
+    "id": "231016",
+    "distance": "700",
+    "time": "15",
+    "address": "456 Đường DEF, Quận UVW, Thành phố Hồ Chí Minh",
+    "source": "../assets/png/Google.png",
+    "percent": "21"
+  },
+  {
+    "id": "231017",
+    "distance": "300",
+    "time": "5",
+    "address": "15 đường số 2, khu A",
+    "source": "../assets/png/Google.png",
+    "percent": "88"
   }
 ]
